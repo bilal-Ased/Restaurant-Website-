@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>email</title>
+</head>
+<body>
+	<form id="form"> 
+	<input name="message" value="message"> 
+	<button>Submit</button> 
+</form> 
+<script> 
+$(function(){ 
+	$("#form").submit(function(e){ 
+		e.preventDefault(); 
+		$.ajax({ 
+			url:'email.php', 
+			type:'POST', 
+			data:$("#form").serialize(), 
+			success:function(e) { 
+				// when message has sent 
+			} 
+		}); 
+	}); 
+}); 
+</script> 
+
+</body>
+</html>
